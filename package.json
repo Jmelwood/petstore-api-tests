@@ -1,0 +1,16 @@
+{
+  "name": "petstore-api-tests",
+  "version": "1.0.0",
+  "description": "Automated end-to-end API tests for the Petstore service.",
+  "author": "Jeremy Cosel",
+  "homepage": "https://github.com/Jmcosel",
+  "license": "GPL-3.0",
+  "repository": "github:Jmcosel/petstore-api-tests",
+  "devDependencies": {
+    "@apidevtools/swagger-parser": "^10.0.2",
+    "ajv": "^6.12.6",
+    "chai": "^4.3.0",
+    "chai-json-schema-ajv": "^5.1.0",
+    "chance": "^1.1.7"
+  }
+}

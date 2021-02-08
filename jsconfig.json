@@ -1,0 +1,8 @@
+{
+  "include": ["**/*.js", "**/*.json"],
+  "exclude": ["node_modules"],
+  "target": "es2018",
+  "module": "es6",
+  "moduleResolution": "node",
+  "checkJs": true,
+}
