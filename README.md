@@ -14,4 +14,4 @@ This uses the basic `fetch` web API to perform REST API end-to-end testing, pair
 
 1. Clone this repository (`git clone https://github.com/Jmcosel/petstore-api-tests.git`)
 2. Navigate to the root of the folder and install the npm dependencies (`npm install`)
-3. Run the tests with the following command: `mocha test/**/*.js`
+3. Run the tests with the following command: `npm test test/**/*.js`

@@ -6,7 +6,17 @@ module.exports = (async () => {
   global.chai = require('chai');
   chai.use(
     require('chai-json-schema-ajv').create({
-      allErrors: true
+      allErrors: true,
+      formats: {
+        int32: (data) => {
+          data = Number(data);
+          return data <= 2147483647 && data >= -2147483647;
+        },
+        int64: (data) => {
+          data = Number(data);
+          return data <= 9223372036854775807n && data >= -9223372036854775807n;
+        }
+      }
     })
   );
   global.expect = chai.expect;
