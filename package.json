@@ -6,11 +6,16 @@
   "homepage": "https://github.com/Jmcosel",
   "license": "GPL-3.0",
   "repository": "github:Jmcosel/petstore-api-tests",
+  "scripts": {
+    "test": "mocha"
+  },
   "devDependencies": {
     "@apidevtools/swagger-parser": "^10.0.2",
     "ajv": "^6.12.6",
     "chai": "^4.3.0",
     "chai-json-schema-ajv": "^5.1.0",
-    "chance": "^1.1.7"
+    "chance": "^1.1.7",
+    "mocha": "^8.3.0",
+    "node-fetch": "^2.6.1"
   }
 }
