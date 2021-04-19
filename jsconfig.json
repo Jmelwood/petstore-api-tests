@@ -1,8 +1,12 @@
 {
-  "include": ["**/*.js", "**/*.json"],
-  "exclude": ["node_modules"],
-  "target": "es2018",
-  "module": "es6",
-  "moduleResolution": "node",
-  "checkJs": true,
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2018",
+    "types": [
+        "node"
+    ],
+    "moduleResolution": "node",
+  },
+  "include": ["**/*.js", "**/*.json", "global.d.ts"],
+  "exclude": ["node_modules"]
 }

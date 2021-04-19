@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Test Debug",
+      "type": "node",
+      "request": "launch",
+      "args": ["${file}"],
+      "env": {
+        "DEBUG": "true"
+      },
+      "autoAttachChildProcesses": true,
+      "program": "${workspaceRoot}/node_modules/mocha/bin/mocha",
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "${workspaceFolder}/lib/**/*.js",
+        "<node_internals>/**/*.js"
+      ]
+    }
+  ]
+}
