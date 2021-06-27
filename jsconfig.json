@@ -7,6 +7,7 @@
     ],
     "moduleResolution": "node",
   },
+  "checkJs": true,
   "include": ["**/*.js", "**/*.json", "global.d.ts"],
   "exclude": ["node_modules"]
 }

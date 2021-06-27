@@ -1,17 +1,16 @@
-# petstore-api-tests
+# Petstore API Tests
 
-Automated end-to-end API tests for the Petstore service.
+## Summary
 
-## How to run
+Automated end-to-end API tests for the [Petstore](https://petstore.swagger.io) service. This is a simple framework that uses the [node-fetch](https://github.com/node-fetch/node-fetch) package to perform AJAX HTTP requests, paired with the [Mocha](https://mochajs.org) test framework and [Chai](https://www.chaijs.com/) for easy BDD assertions. Additionally, [AJV](https://github.com/ajv-validator/ajv) is implemented for JSON schema validation of all API responses.
 
-This uses the basic `fetch` web API to perform REST API end-to-end testing, paired with the Mocha test framework and Chai for easy BDD assertions.
+## Prerequisites
 
-### Prerequisites
+- Node.js (last tested with version LTS 14.17.0)
 
-- Node.js: I used (and only tested on) v15.8.0, with npm v7.5.0.
-
-### Test instructions
+## How to run tests
 
 1. Clone this repository (`git clone https://github.com/Jmcosel/petstore-api-tests.git`)
-2. Navigate to the root of the folder and install the npm dependencies (`npm install`)
-3. Run the tests with the following command: `npx mocha test/**/*.js`
+2. Navigate to the root of the folder and install the dependencies (`cd petstore-api-tests && npm i`)
+3. Run the tests with the following node command: `npx mocha test/**/*.js`
+4. If you wish for a debugging experience, add `DEBUG=true` as an environment variable to the above command
