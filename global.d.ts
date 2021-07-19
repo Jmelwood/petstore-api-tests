@@ -3,20 +3,26 @@ declare global {
   const baseUrl: String;
   const expect: Chai.ExpectStatic;
   const should: any;
-  const nodeFetch: any;
-  const attemptCount: Number;
   /**
    * A wrapper for fetching data from an endpoint, which loops a variable number of times.
    * See project README for details.
    * @param {String} endpoint - The endpoint to fetch
    * @param {Object} options
    * @param {String} options.method - The method to fetch over, defaults to "GET"
+   * @param {String} options.contentType - Specify content type (ie. JSON, form, etc.)
    * @param {Object} options.body - (optional) A request body to send for POST/PUT operations
    * @param {Number} options.statusCode - The response code expected, defaults to 200 success
-   * @param {Number} retries - How many times to retry the fetch, defaults to 10
    * @returns {Object} Response data on success
    */
-  const fetch: (endpoint: String, options: { method: String, body: Object, statusCode: Number }, retries: Number) => Object;
+  const fetch: (endpoint: String, options: { method: String, contentType: String, body: Object, statusCode: Number }) => Object;
+  /**
+   * A wrapper on any function that allows a customizable number of attempts before allowing it to throw an error.
+   * See project README for details.
+   * @param {Function} fn - The function to wrap and retry
+   * @param {Array[any]} params - A list of parameters to pass into the function
+   * @param {Number} retries - The amount of times to retry, defaults to 10
+   */
+  const fnWithRetries: (fn: Function, params: Array[any], retries: Number) => any;
   const swaggerSpec: Document<{}>;
   /**
    * Finds the section of the returned API schema JSON object based on the options provided.
@@ -39,8 +45,8 @@ declare global {
       baseUrl: string;
       expect: typeof expect;
       should: typeof should;
-      nodeFetch: any;
       fetch: typeof fetch;
+      fnWithRetries: typeof fnWithRetries;
       swaggerSpec: typeof swaggerSpec;
       assignSchema: typeof assignSchema;
       sleep: typeof sleep;

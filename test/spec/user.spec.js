@@ -1,4 +1,4 @@
-import User from '../util/user';
+import User from '../util/dto/user';
 
 describe('/user', () => {
   it('Can create, read, update, and delete a single user', async function () {
@@ -11,10 +11,9 @@ describe('/user', () => {
 
     // Read
     let verifyResponse = await fetch(`${baseUrl}/user/${initialUser.username}`);
-    let verifyResponseBody = await verifyResponse.json();
     const successSchema = assignSchema('/user/{username}');
-    expect(verifyResponseBody).to.be.jsonSchema(successSchema);
-    expect(verifyResponseBody).to.include(initialUser);
+    expect(verifyResponse).to.be.jsonSchema(successSchema);
+    expect(verifyResponse).to.include(initialUser);
 
     // Update
     const newUser = new User();
@@ -23,8 +22,7 @@ describe('/user', () => {
       body: JSON.stringify(newUser)
     });
     verifyResponse = await fetch(`${baseUrl}/user/${newUser.username}`);
-    verifyResponseBody = await verifyResponse.json();
-    expect(verifyResponseBody).to.include(newUser);
+    expect(verifyResponse).to.include(newUser);
 
     // Delete
     await fetch(`${baseUrl}/user/${newUser.username}`, {
@@ -59,14 +57,11 @@ describe('/user', () => {
 
   invalidCreationCases.forEach(({ problem, requestBody }) => {
     it(`Creating a user with problem type "${problem}" causes an appropriate response error`, async function () {
-      await fetch(
-        `${baseUrl}/user`,
-        {
-          method: 'POST',
-          body: JSON.stringify(requestBody)
-        },
-        1
-      );
+      await fetch(`${baseUrl}/user`, {
+        method: 'POST',
+        body: JSON.stringify(requestBody),
+        statusCode: 500
+      });
     });
   });
 
@@ -86,10 +81,8 @@ describe('/user', () => {
     const successSchema = assignSchema('/user/{username}');
     for (let i = 0; i < accounts.length; i++) {
       let verifyResponse = await fetch(`${baseUrl}/user/${accounts[i].username}`);
-      expect(verifyResponse.status).to.equal(200);
-      let verifyResponseBody = await verifyResponse.json();
-      expect(verifyResponseBody).to.be.jsonSchema(successSchema);
-      expect(verifyResponseBody).to.include(accounts[i]);
+      expect(verifyResponse).to.be.jsonSchema(successSchema);
+      expect(verifyResponse).to.include(accounts[i]);
     }
   });
 });
