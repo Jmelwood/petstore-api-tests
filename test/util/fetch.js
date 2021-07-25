@@ -31,7 +31,7 @@ const fetchHelper = async (endpoint, options) => {
   if (debug) console.log(`Response: ${verifyResponse.status}`);
   expect(verifyResponse.status).to.equal(options.statusCode);
   let responseBody = await verifyResponse.json();
-  console.log(responseBody);
+  if (debug) console.log(responseBody);
   return responseBody;
 };
 

@@ -40,7 +40,9 @@ describe('/user', () => {
         a: problemUser.email,
         d: problemUser.firstName,
         f: problemUser.phone
-      }
+      },
+      // This is obviously wrong but out of my control, and I felt like demonstrating this use case nonetheless.
+      statusCode: 200
     },
     {
       problem: 'Incorrect datatype for values',
@@ -51,16 +53,17 @@ describe('/user', () => {
         email: 1,
         password: ['blah'],
         phone: 40.5
-      }
+      },
+      statusCode: 500
     }
   ];
 
-  invalidCreationCases.forEach(({ problem, requestBody }) => {
-    it(`Creating a user with problem type "${problem}" causes an appropriate response error`, async function () {
+  invalidCreationCases.forEach(({ problem, requestBody, statusCode }) => {
+    it(`Creating a user with problem type "${problem}" causes the response error ${statusCode}`, async function () {
       await fetch(`${baseUrl}/user`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
-        statusCode: 500
+        statusCode: statusCode
       });
     });
   });

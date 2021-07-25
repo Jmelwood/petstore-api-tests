@@ -55,6 +55,4 @@ describe('/pet', () => {
       [this.test.initialPet]
     );
   });
-
-  it('Can add an image to a pet');
 });

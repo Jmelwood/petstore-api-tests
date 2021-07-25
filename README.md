@@ -12,7 +12,7 @@ Automated end-to-end API tests for the [Petstore](https://petstore.swagger.io) s
 
 1. Clone this repository (`git clone https://github.com/Jmcosel/petstore-api-tests.git`)
 2. Navigate to the root of the folder and install the dependencies (`cd petstore-api-tests && npm i`)
-3. Run the tests with the following node command: `npx mocha test/**/*.js`
+3. Run the tests with the following node command: `npx mocha test/**/*.spec.js`
 4. If you wish for a debugging experience, add `DEBUG=true` as an environment variable to the above command
 
 ## Quirks
@@ -33,3 +33,16 @@ In addition to needing to send fetch requests several times to deal with the lac
 ### Why does the `Pet` object define an ID?
 
 The Petstore service is naive and is not able to look up and assign a unique ID to a newly created `Pet` object. Instead, it relies on the request to specify one, which is not great design because it can certainly be overwritten by a subsequent request. However, for this test framework's purposes where data retention doesn't matter and the likelihood of conflict is near zero, it is overlooked.
+
+### How come you don't have full test coverage?
+
+The endpoints are very barebones (usually just takes the data you give it without any further checks), and sometimes don't fully conform to the logic you'd expect. Instead of making assertions in the test that will end up failing, I'd rather just list what I "would" test here, should the functionality described in the API documentation work as expected.
+
+Those tests would include:
+
+- Ensuring that orders don't get created if the supplied pet ID doesn't exist in the database
+- User login/logout and authentication token usage (endpoints just seem to exist but do nothing, and all endpoints require no auth)
+- Testing the updated count of `/store/inventory` (since data replication doesn't occur, it's impossible to know if I'm getting the right copy of the inventory or not)
+- More error handling / boundary breaking (some non-200 response codes are documented, but a 50X usually comes up instead of an expected 40X)
+
+Finally, my motivation for this project was to showcase making an E2E API framework, not to actually verify functionality of this service, which I think the limited tests that are written have accomplished.
