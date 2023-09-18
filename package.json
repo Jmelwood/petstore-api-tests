@@ -1,26 +1,38 @@
 {
   "name": "petstore-api-tests",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "type": "module",
   "description": "Automated end-to-end API tests for the Petstore service.",
-  "author": "Jeremy Cosel",
+  "author": "Jeremy Elwood",
   "homepage": "https://github.com/Jmcosel",
   "license": "GPL-3.0",
   "repository": "github:Jmcosel/petstore-api-tests",
   "scripts": {
-    "test": "mocha"
+    "test": "DOTENV_CONFIG_PATH=.env node -r dotenv/config ./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {
-    "@apidevtools/swagger-parser": "^10.0.2",
-    "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
-    "@babel/register": "^7.14.5",
-    "@types/node": "^14.17.5",
-    "ajv": "^8.6.1",
-    "ajv-formats": "^2.1.0",
-    "chai": "^4.3.4",
-    "chai-json-schema-ajv": "^5.2.4",
-    "chance": "^1.1.7",
-    "mocha": "^9.0.2",
-    "node-fetch": "^2.6.1"
+    "@types/chance": "^1.1.4",
+    "@types/eslint": "^8.44.2",
+    "@types/eslint-plugin-prettier": "^3.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "18.17.1",
+    "@types/prettier": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "chance": "^1.1.11",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-define-config": "^1.23.0",
+    "eslint-gitignore": "^0.1.0",
+    "eslint-plugin-jsdoc": "^46.6.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-wdio": "^8.8.7",
+    "mocha": "^10.2.0",
+    "node-fetch": "^3.3.2",
+    "pactum": "^3.5.1",
+    "prettier": "^3.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   }
 }

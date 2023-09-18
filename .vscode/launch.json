@@ -6,14 +6,16 @@
       "type": "node",
       "request": "launch",
       "args": ["${file}"],
+      "runtimeArgs": ["-r", "dotenv/config"],
       "env": {
+        "DOTENV_CONFIG_PATH": ".env",
         "DEBUG": "true"
       },
       "autoAttachChildProcesses": true,
       "program": "${workspaceRoot}/node_modules/mocha/bin/mocha",
+      "console": "integratedTerminal",
       "skipFiles": [
         "${workspaceFolder}/node_modules/**/*.js",
-        "${workspaceFolder}/lib/**/*.js",
         "<node_internals>/**/*.js"
       ]
     }

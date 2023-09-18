@@ -1,0 +1,27 @@
+{
+  "ts-node": {
+    "files": true
+  },
+  "compilerOptions": {
+    // Code generation options
+    "target": "esnext",
+    "module": "nodenext",
+    // Type checking options
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowJs": true,
+    "checkJs": false,
+    "types": ["node", "mocha"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "noErrorTruncation": true
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "<node_internals>/**"]
+}
