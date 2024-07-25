@@ -6,11 +6,11 @@ Automated end-to-end API tests for the [Petstore](https://petstore3.swagger.io/)
 
 ## Prerequisites
 
-- Node.js (last tested with version LTS 18.17.1)
+- Node.js (last tested with version LTS 20.15.1)
 
 ## How to run tests
 
-1. Clone this repository (`git clone https://github.com/Jmcosel/petstore-api-tests.git`)
+1. Clone this repository (`git clone https://github.com/Jmelwood/petstore-api-tests.git`)
 2. Navigate to the root of the folder and install the dependencies (`cd petstore-api-tests && yarn`)
 3. Copy the `sample.env` and rename it to `.env` (this has the base URL of the hosted Petstore service set for pactum)
 4. Run the tests with the following command: `yarn test`
