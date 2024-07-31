@@ -8,7 +8,7 @@
   "license": "GPL-3.0",
   "repository": "github:Jmelwood/petstore-api-tests",
   "scripts": {
-    "test": "node -r dotenv/config ./node_modules/mocha/bin/mocha"
+    "test": "node -r dotenv/config ./node_modules/mocha/bin/mocha --reporter-options 'outputDir=reports'"
   },
   "devDependencies": {
     "@types/chance": "^1.1.6",
@@ -28,6 +28,7 @@
     "eslint-plugin-jsdoc": "^48.8.3",
     "eslint-plugin-prettier": "^5.2.1",
     "mocha": "^10.7.0",
+    "mocha-ctrf-json-reporter": "^0.0.6",
     "pactum": "^3.7.0",
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",

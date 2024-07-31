@@ -6,5 +6,9 @@ module.exports = {
   timeout: 30000,
   recursive: true,
   ui: 'bdd',
-  require: ['./setup.ts']
+  require: ['./setup.ts'],
+  reporter: 'mocha-ctrf-json-reporter',
+  reporterOptions: {
+    outputDir: 'reports'
+  }
 };

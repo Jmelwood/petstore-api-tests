@@ -1429,6 +1429,11 @@ minimatch@^9.0.4:
   dependencies:
     brace-expansion "^2.0.1"
 
+mocha-ctrf-json-reporter@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/mocha-ctrf-json-reporter/-/mocha-ctrf-json-reporter-0.0.6.tgz#b27dfd01570a28f90f41d2cc12f8228142e6ec85"
+  integrity sha512-a5wBPTIYDfbSHKKYH6iM6Ut1PT2gpOoGe4tXB3SFYSou5QGUEcWHKBcHpnWGxVRUcYDMtNPU6n1127OHgS3qCA==
+
 mocha@^10.7.0:
   version "10.7.0"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-10.7.0.tgz#9e5cbed8fa9b37537a25bd1f7fb4f6fc45458b9a"
