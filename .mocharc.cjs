@@ -1,14 +1,15 @@
 module.exports = {
+  spec: process.argv[2] ?? ['test/**/*.spec.ts'],
   extension: ['.spec.ts'],
-  loader: 'ts-node/esm',
-  package: './package.json',
-  slow: 10000,
-  timeout: 30000,
+  import: 'tsx',
+  slow: 10_000,
+  timeout: 30_000,
   recursive: true,
   ui: 'bdd',
+  parallel: true,
   require: ['./setup.ts'],
-  reporter: 'mocha-ctrf-json-reporter',
+  reporter: 'mocha-multi-reporters',
   reporterOptions: {
-    outputDir: 'reports'
+    configFile: 'reporter.conf.cjs'
   }
 };
