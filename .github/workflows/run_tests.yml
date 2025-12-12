@@ -3,7 +3,7 @@ name: 'Run All Tests'
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 9 * * *"
+    - cron: '0 9 * * *'
   push:
     branches:
       - main
@@ -19,18 +19,18 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.15.x
-          cache: 'yarn' 
+          node-version: 24.11.x
+          cache: 'yarn'
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
       - name: Create environment file
         run: cp sample.env .env
-      
+
       - name: Run tests
         run: yarn test
-      
+
       - name: Publish test report
         run: npx github-actions-ctrf reports/ctrf-report.json
         if: always()

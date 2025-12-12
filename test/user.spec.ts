@@ -1,7 +1,7 @@
 import pactum from 'pactum';
 
+import schema from '../fixtures/schema.json' with { type: 'json' };
 import User from '../fixtures/user.js';
-import schema from '../fixtures/schema.json' assert { type: 'json' };
 
 describe('/user', () => {
   it('Can create, read, update, and delete a single user', async function () {
@@ -90,14 +90,14 @@ describe('/user', () => {
       .withHeaders('Content-Type', 'application/json')
       .withJson(accounts);
 
-    for (const count in accounts) {
+    for (const [count, account] of accounts.entries()) {
       await testCase
         .step(`Verify Account #${count}`)
         .spec()
-        .get(`/user/${accounts[count].username}`)
+        .get(`/user/${account.username}`)
         .expectStatus(200)
         .expectJsonSchema(schema.User)
-        .expectJson(accounts[count]);
+        .expectJson(account);
     }
   });
 });

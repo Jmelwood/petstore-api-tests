@@ -1,7 +1,7 @@
 import pactum from 'pactum';
 
 import Pet from '../fixtures/pet.js';
-import schema from '../fixtures/schema.json' assert { type: 'json' };
+import schema from '../fixtures/schema.json' with { type: 'json' };
 
 describe('/pet', () => {
   it('Can read, update, and delete a pet', async function () {

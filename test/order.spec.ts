@@ -1,7 +1,7 @@
 import pactum from 'pactum';
 
 import Order from '../fixtures/order.js';
-import schema from '../fixtures/schema.json' assert { type: 'json' };
+import schema from '../fixtures/schema.json' with { type: 'json' };
 
 describe('/store', () => {
   it('Can create, read and delete an order', async function () {

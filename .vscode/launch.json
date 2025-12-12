@@ -14,10 +14,7 @@
       "autoAttachChildProcesses": true,
       "program": "${workspaceRoot}/node_modules/mocha/bin/mocha",
       "console": "integratedTerminal",
-      "skipFiles": [
-        "${workspaceFolder}/node_modules/**/*.js",
-        "<node_internals>/**/*.js"
-      ]
+      "skipFiles": ["${workspaceFolder}/node_modules/**/*.js", "<node_internals>/**/*.js"]
     }
   ]
 }

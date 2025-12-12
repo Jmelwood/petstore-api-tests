@@ -1,5 +1,8 @@
 module.exports = {
-  spec: process.argv[2] ?? ['test/**/*.spec.ts'],
+  spec: (() => {
+    const specs = process.argv.filter(arg => arg.includes('spec'));
+    return specs.length > 0 ? specs : ['test/**/*.spec.ts'];
+  })(),
   extension: ['.spec.ts'],
   import: 'tsx',
   slow: 10_000,
@@ -8,7 +11,7 @@ module.exports = {
   ui: 'bdd',
   parallel: true,
   require: ['./setup.ts'],
-  reporter: 'mocha-multi-reporters',
+  reporter: '@jelwood/mocha-multi-reporters',
   reporterOptions: {
     configFile: 'reporter.conf.cjs'
   }

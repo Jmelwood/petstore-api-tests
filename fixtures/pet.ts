@@ -12,7 +12,7 @@ export default class Pet {
    */
   name: string;
   /**
-   * The status of the pet, based on the existance/status of an associated order entity.
+   * The status of the pet, based on the existence/status of an associated order entity.
    */
   status: string;
   /**

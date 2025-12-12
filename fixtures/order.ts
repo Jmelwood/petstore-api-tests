@@ -20,7 +20,7 @@ export default class Order {
    */
   status: string;
   /**
-   * Whether or not the order is considered finished.
+   * Whether the order is considered finished.
    */
   complete: boolean;
 
